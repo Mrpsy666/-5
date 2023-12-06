@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>影视后台管理页面</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="index.js"></script>
+    <style>
+    body{
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+    }
+    #container{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    .shang{
+        flex: 1;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #555555;
+    }
+    .xia{
+        flex: 10;
+        display: flex;
+    }
+    .left{
+        height: 100%;
+        flex:1;
+    }
+    ul{
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        justify-content: space-around;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #f1f1f1;
+    }
+    li span{
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+        margin: 0 auto;
+    }
+    li span:hover{
+        background-color: #555;
+        color: white;
+        cursor: pointer;
+    }
+    #main{
+
+        flex:6;
+        /*display: flex;*/
+        /*flex-direction: column;*/
+        /*justify-content: space-between;*/
+    }
+    .name{
+        color: white;
+        font-size: 26px;
+    }
+    #userName{
+        color: white;
+    }
+    #showinfo{
+        margin: 10% 18%;
+    }
+    #main-info{
+
+        text-align: center;
+        border: 1px solid black;
+        border-collapse: collapse;
+        width: 95%;
+        margin: 10px auto;
+        padding: 10px;
+    }
+    #main-info td, #main-info th{
+    border: 1px solid black;
+    padding: 5px;
+    width: 12%;
+    font-size: 15px;
+    }
+    #main-info img{
+        width: 100%;
+    }
+    #main-info button{
+        border: none;
+        margin: 10px;
+        width: 50px;
+        height: 30px;
+        border-radius: 6px;
+    }
+#main-info button.change{
+    width: 80%;
+    background-color: #ff9900;
+}
+#main-info button.delete{
+    width: 80%;
+    background-color: red;
+}
+#main-info button.change:hover{
+    background-color: rgba(255,187,27,0.62);
+    cursor: pointer;
+}
+#main-info button.delete:hover{
+    cursor: pointer;
+    background-color: rgba(255,44,12,0.62);
+}
+</style>
+</head>
+
+<body>
+<div id="container">
+    <div class="shang">
+        <div class="name">
+            影视后台管理管理
+        </div>
+        <div id="userName">
+            姓名:&nbsp;Mrpsy
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            账号:&nbsp;666
+        </div>
+    </div>
+    <div class="xia">
+        <div class="left">
+        <ul>
+        <li><span id="add">添加影视</span></li>
+        <li><span id="send">同步后端</span></li>
+        <li><span id="reload">刷新(初始化)</span></li>
+        <li><span id="clear">清空后端</span> </li>
+        </ul>
+    </div>
+        <div id="main">
+            <div id="main-frame">
+                <div id="showinfo">
+                    <h3 id="dateTime"></h3>
+                    &nbsp;
+                    <p>使用说明</p>
+                    <p>1.首次进入，请点击刷新(初始化)按钮，将显示默认格式,之后再次点击刷新按钮，将显示后端数据<br/>
+                    (注意，后端数据可能为空，页面将不显示)</p>
+                    <p>2.每次同步后端前，请点击清空后端按钮!!!避免重复!!</p>
+                    <p>3.同步后端后再次点击刷新按钮,将从后端读取存储的数据以展示</p>
+                    <p>4.为方便和后端衔接，在添加影视时请使用英文，避免乱码情况</p>
+                </div>
+              <table id="main-info">
+                  <thead>
+                      <th>封面</th>
+                      <th>片名</th>
+                      <th>类型</th>
+                      <th>地区</th>
+                      <th>演员</th>
+                      <th>上映时间</th>
+                      <th>评分</th>
+                      <th>操作</th>
+                  </thead>
+                  <tbody>
+                      <tr>
+                      <td><img src="image/logo.png"/></td>
+                      <td>Perfect World</td>
+                      <td>Cartoon</td>
+                      <td>China</td>
+                      <td>Huangtiandi</td>
+                      <td>2023.9</td>
+                      <td>9.9</td>
+                      <td>
+                          <button class="change" type="button">Modify</button>
+                          <button class="delete" type="button">Delete</button>
+                      </td>
+                      </tr>
+                        <tr>
+                      <td><img src="image/poster1.jpg"/></td>
+                      <td>SpongeBob</td>
+                      <td>Carteen</td>
+                      <td>China</td>
+                      <td>Sponge</td>
+                      <td>2013.1</td>
+                      <td>8.7</td>
+                      <td>
+                          <button class="change" type="button">Modify</button>
+                          <button class="delete" type="button">Delete</button>
+                      </td>
+                      </tr>
+                      <tr>
+                      <td><img src="image/poster2.jpg"/></td>
+                      <td>ParticStar</td>
+                      <td>Cartoon</td>
+                      <td>China</td>
+                      <td>Partic</td>
+                      <td>2023.2</td>
+                      <td>8.4</td>
+                      <td>
+                          <button class="change" type="button">Modify</button>
+                          <button class="delete" type="button">Delete</button>
+                      </td>
+                      </tr>
+                  </tbody>
+
+              </table>
+            </div>
+        </div>
+    </div>
+<div class="modal" id="modifyModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">修改内容</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form id="modifyForm">
+          <label for="cover">封面:</label>
+            <select id="cover" name="cover" class="form-control">
+              <option value="image/logo.png">Logo</option>
+              <option value="image/poster1.jpg">海绵宝宝</option>
+              <option value="image/poster2.jpg">派大星</option>
+              <option value="image/poster3.jpg">章鱼哥</option>
+                <option value="image/dog.png">一只狗</option>
+                <option value="image/cat.jpg">一只猫</option>
+                <option value="image/please.png">我勒个豆</option>
+                <option value="image/yumao.jpg">打羽毛</option>
+            </select>
+          <label for="title">片名:</label>
+          <input type="text" id="title" name="title" class="form-control">
+          <label for="type">类型:</label>
+          <input type="text" id="type" name="type" class="form-control">
+          <label for="area">地区:</label>
+          <input type="text" id="area" name="area" class="form-control">
+          <label for="actor">演员:</label>
+          <input type="text" id="actor" name="actor" class="form-control">
+          <label for="releaseDate">上映时间:</label>
+          <input type="text" id="releaseDate" name="releaseDate" class="form-control">
+          <label for="rating">评分:</label>
+          <input type="text" id="rating" name="rating" class="form-control">
+          <button type="button" class="btn btn-primary mt-3" id="submitBtn">提交</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="addModal" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title">添加影视</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <form id="addForm">
+      <label for="cover">封面:</label>
+        <select id="addcover" name="cover" class="form-control">
+          <option value="image/logo.png">Logo</option>
+              <option value="image/poster1.jpg">海绵宝宝</option>
+              <option value="image/poster2.jpg">派大星</option>
+              <option value="image/poster3.jpg">章鱼哥</option>
+                <option value="image/dog.png">一只狗</option>
+                <option value="image/cat.jpg">一只猫</option>
+                <option value="image/please.png">我勒个豆</option>
+                <option value="image/yumao.jpg">打羽毛</option>
+        </select>
+      <label for="title">片名:</label>
+      <input type="text" id="addtitle" name="title" class="form-control">
+      <label for="type">类型:</label>
+      <input type="text" id="addtype" name="type" class="form-control">
+      <label for="area">地区:</label>
+      <input type="text" id="addarea" name="area" class="form-control">
+      <label for="actor">演员:</label>
+      <input type="text" id="addactor" name="actor" class="form-control">
+      <label for="releaseDate">上映时间:</label>
+      <input type="text" id="addreleaseDate" name="releaseDate" class="form-control">
+      <label for="rating">评分:</label>
+      <input type="text" id="addrating" name="rating" class="form-control">
+      <button type="button" class="btn btn-primary mt-3" id="addsubmitBtn">提交</button>
+    </form>
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
